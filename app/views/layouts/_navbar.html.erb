@@ -5,7 +5,7 @@
     </div>
 
     <ul class="nav navbar-nav">
-      <li class="<%= activatable_class('cards') %>"><%= link_to t('all_cards'), cards_path %></li>
+      <li><%= active_link_to t('all_cards'), cards_path, controller_name: 'cards' %></li>
       <li><a href="#"><%= t('add_card') %></a></li>
     </ul>
   </div>
