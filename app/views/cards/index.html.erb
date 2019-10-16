@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <tr>
+    <th>Оригинал</th>
+    <th>Перевод</th>
+    <th>Дата следующего просмотра</th>
+  </tr>
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original_text %></td>
+      <td><%= card.translated_text %></td>
+      <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
+    </tr>
+  <% end %>
+</table>
