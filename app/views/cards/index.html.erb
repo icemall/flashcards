@@ -1,8 +1,8 @@
 <table class="table table-striped">
   <tr>
-    <th>Оригинал</th>
-    <th>Перевод</th>
-    <th>Дата следующего просмотра</th>
+    <th><%= Card.human_attribute_name(:original_text) %></th>
+    <th><%= Card.human_attribute_name(:translated_text) %></th>
+    <th><%= Card.human_attribute_name(:review_date) %></th>
   </tr>
   <% @cards.each do |card| %>
     <tr>
