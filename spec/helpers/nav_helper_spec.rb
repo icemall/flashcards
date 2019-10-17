@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe NavHelper, type: :helper do
   describe 'active link_to' do
-    before(:each) do
+    before do
       allow(helper).to receive(:controller_name).and_return('cards')
     end
     it 'adds active class to links' do
