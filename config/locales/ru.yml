@@ -10,3 +10,10 @@ ru:
   app_name: "Флэшкарточкер"
   add_card: "Добавить карточку"
   all_cards: "Все карточки"
+  edit: "Редактировать"
+  destroy: "Удалить"
+  date:
+    order:
+      - :day
+      - :month
+      - :year

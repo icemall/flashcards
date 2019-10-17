@@ -1,0 +1,13 @@
+table.table.table-striped
+  tr
+    th= Card.human_attribute_name(:original_text)
+    th= Card.human_attribute_name(:translated_text)
+    th= Card.human_attribute_name(:review_date)
+    th colspan='2'
+  - @cards.each do |card|
+    tr
+      td= card.original_text
+      td= card.translated_text
+      td= card.review_date.strftime("%d/%m/%Y")
+      td= link_to t('edit'), edit_card_path(card)
+      td= link_to t('destroy'), card_path(card), method: :delete

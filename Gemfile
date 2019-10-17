@@ -40,3 +40,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'simple_form'
 gem 'slim'
+gem 'rails-i18n'
