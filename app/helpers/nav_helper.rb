@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NavHelper
   def active_link_to(anchor, path, options = {})
     if controller_name == options[:controller_name]

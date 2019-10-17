@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CardsController, type: :controller do
@@ -10,7 +12,7 @@ RSpec.describe CardsController, type: :controller do
 
     it 'renders the index template' do
       get :index
-      expect(response).to render_template("index")
+      expect(response).to render_template('index')
     end
   end
 end
