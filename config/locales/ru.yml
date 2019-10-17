@@ -18,3 +18,5 @@ ru:
       - :month
       - :year
   texts_should_be_different: "Оригинал и перевод должны быть разными"
+  new_card: "Новая карточка"
+  card_successfuly_created: "Карточка создана"

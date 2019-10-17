@@ -7,6 +7,19 @@ class CardsController < ApplicationController
     @cards = Card.all
   end
 
+  def new
+    @card = Card.new
+  end
+
+  def create
+    @card = Card.create(card_params)
+    if @card.save
+      redirect_to cards_path, notice: t('card_successfuly_created')
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
