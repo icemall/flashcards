@@ -17,3 +17,4 @@ ru:
       - :day
       - :month
       - :year
+  texts_should_be_different: "Оригинал и перевод должны быть разными"
