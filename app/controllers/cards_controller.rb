@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CardsController < ApplicationController
-  before_action :set_card, only: [:edit, :update, :destroy]
+  before_action :set_card, only: %i[edit update destroy]
 
   def index
     @cards = Card.all
@@ -20,8 +20,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @card.update(card_params)
@@ -40,6 +39,7 @@ class CardsController < ApplicationController
   end
 
   private
+
   def set_card
     @card = Card.find(params[:id])
   end

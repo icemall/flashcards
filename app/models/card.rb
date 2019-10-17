@@ -10,6 +10,7 @@ class Card < ApplicationRecord
 
   def normalize(string)
     return unless string
+
     string.strip.downcase
   end
 
@@ -18,6 +19,8 @@ class Card < ApplicationRecord
   end
 
   def texts_are_different
-    errors.add(:base, I18n.t('texts_should_be_different')) if normalize(original_text) == normalize(translated_text) && original_text.present?
+    if normalize(original_text) == normalize(translated_text) && original_text.present?
+      errors.add(:base, I18n.t('texts_should_be_different'))
+    end
   end
 end
