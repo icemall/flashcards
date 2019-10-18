@@ -31,11 +31,8 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    if @card.destroy
-      redirect_to cards_path
-    else
-      render :edit
-    end
+    @card.destroy
+    redirect_to cards_path
   end
 
   private
