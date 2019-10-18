@@ -1,0 +1,13 @@
+= simple_form_for @card do |f|
+
+  - if @card.errors.any?
+    ul.text-danger
+      - @card.errors.full_messages.each do |error|
+        li = error
+
+
+  = f.input :original_text
+  = f.input :translated_text
+  = f.input :review_date
+
+  = f.button :submit
