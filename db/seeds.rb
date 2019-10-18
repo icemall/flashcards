@@ -1,8 +1,19 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+# parse DE->EN translations for card seeds
+require 'open-uri'
+TRANSLATIONS_URL = 'http://1000mostcommonwords.com/1000-most-common-german-words/'
+page = Nokogiri::HTML(open(TRANSLATIONS_URL))
+cards = []
+page.css('tr').each_with_index do |row, i|
+  next if i.zero? # skip header
+
+  card = {}
+  card[:original_text] = row.css('td')[1].text
+  card[:translated_text] = row.css('td')[2].text
+  card[:review_date] = Date.today
+  cards << card
+end
+cards.each do |card|
+  CreateCard.call(card).save!(validate: false)
+end
