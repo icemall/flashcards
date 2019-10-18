@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(card_params)
+    @card = CreateCard.call(card_params)
     if @card.save
       redirect_to cards_path, notice: t('card_successfuly_created')
     else
