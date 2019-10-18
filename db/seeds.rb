@@ -15,5 +15,5 @@ page.css('tr').each_with_index do |row, i|
   cards << card
 end
 cards.each do |card|
-  CreateCard.call(card).save!(validate: false)
+  CreateCard.call(card).save
 end
