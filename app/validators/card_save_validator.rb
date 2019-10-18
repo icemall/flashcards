@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardSaveValidator < ActiveModel::Validator
   def validate(record)
     if texts_are_different(record)
@@ -6,8 +8,10 @@ class CardSaveValidator < ActiveModel::Validator
   end
 
   private
+
   def normalize(string)
     return unless string
+
     string.strip.downcase
   end
 
