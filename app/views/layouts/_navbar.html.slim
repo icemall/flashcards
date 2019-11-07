@@ -1,7 +1,7 @@
 nav.navbar.navbar-default
   .container-fluid
     .navbar-header
-      a.navbar-brand href="#" = t('app_name')
+      = link_to t('app_name'), root_path, class: 'navbar-brand'
     ul.nav.navbar-nav
       li= active_link_to t('all_cards'), cards_path, controller_name: 'cards', action_name: 'index'
       li= active_link_to t('add_card'), new_card_path, controller_name: 'cards', action_name: 'new'
