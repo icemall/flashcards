@@ -25,7 +25,7 @@ class Test
       return
     end
 
-    card.update_attribute(:review_date, Date.today + Card::REVIEW_IN_DAYS.days)
+    card.update(review_date: Date.today + Card::REVIEW_IN_DAYS.days)
     self.success = true
     self
   end
