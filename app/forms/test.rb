@@ -20,7 +20,7 @@ class Test
     card.original_text
   end
 
-  def process
+  def call
     if normalize_card(translated_text) != normalize_card(card.translated_text)
       return
     end
