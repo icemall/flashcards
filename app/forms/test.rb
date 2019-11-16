@@ -1,19 +1,15 @@
 class Test
-  include Virtus.model
   include ActiveModel::Model
   include CardHelper
 
-  attribute :card_id, Integer
-  attribute :translated_text, String
-  attribute :success, Boolean
+  attr_accessor :card
+  attr_accessor :card_id
+  attr_accessor :translated_text
+  attr_accessor :success
 
   def initialize(args = {})
-    @card_id = args[:card_id] || Card.to_test.sample&.id
+    @card = args[:card_id].present? ? Card.find(args[:card_id]) : Card.to_test.sample
     @translated_text = args[:translated_text]
-  end
-
-  def card
-    Card.find(card_id)
   end
 
   def original_text

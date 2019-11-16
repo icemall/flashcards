@@ -1,5 +1,5 @@
-= simple_form_for @test, class: 'form-inline' do |f|
-  = f.input :card_id, as: :hidden
+= simple_form_for @test, url: {action: :create}, class: 'form-inline' do |f|
+  = f.input :card_id, as: :hidden, input_html: {value: f.object.card.id}
   .row
     .col-md-5
       dl
