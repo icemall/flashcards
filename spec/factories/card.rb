@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :card do
-    original_text { Faker::Address.city }
-    translated_text  { Faker::Address.city }
+    original_text { 'cat' }
+    translated_text { 'кошка' }
     review_date { Date.today }
   end
 end

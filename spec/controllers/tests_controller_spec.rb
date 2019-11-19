@@ -19,9 +19,12 @@ RSpec.describe TestsController, type: :controller do
       end
     end
     context 'with flashcards to test' do
-      #TODO has flashcards to test
+      before do
+        create(:card, review_date: Date.today)
+        get :new
+      end
       it 'assigns @test' do
-        expect(assigns(:test)).to be_a_new(Test)
+        expect(assigns(:test)).to be_a(Test)
       end
       it 'renders new' do
         expect(response).to render_template(:new)
@@ -29,21 +32,25 @@ RSpec.describe TestsController, type: :controller do
     end
   end
 
-  describe 'POST create' do
-    it 'assigns @test with params' do
-      #TODO
-    end
-    context 'with successful test' do
-      #TODO
-      it 'redirects to root if test has been passed' do
-        expect(response).to redirect_to(root_path)
-      end
-    end
-    context 'with failed test' do
-      #TODO
-      it 'renders new if test has been failed' do
-        expect(response).to render_template(:new)
-      end
-    end
-  end
+  # describe 'POST create' do
+  #   before do
+  #     @test_attributes = attributes_for(:test)
+  #   end
+  #   it 'assigns @test with params' do
+  #     post :create, params: { test: @test_attributes }
+  #     expect(assigns(:test)).to_eq build(:test, @test_attributes)
+  #   end
+  #   context 'with successful test' do
+  #     #TODO
+  #     it 'redirects to root' do
+  #       expect(response).to redirect_to(root_path)
+  #     end
+  #   end
+  #   context 'with failed test' do
+  #     #TODO
+  #     it 'renders new' do
+  #       expect(response).to render_template(:new)
+  #     end
+  #   end
+  # end
 end
