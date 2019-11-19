@@ -7,7 +7,6 @@ RSpec.describe Card, type: :model do
   it { should validate_presence_of(:translated_text) }
   it { should validate_presence_of(:review_date) }
 
-
   describe '.to_test' do
     let!(:card_to_review1) { create(:card, review_date: Date.today) }
     let!(:card_to_review2) { create(:card, review_date: Date.today) }
