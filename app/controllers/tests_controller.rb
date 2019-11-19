@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  def index
-    redirect_to new_test_path
-  end
-
   def new
     redirect_to root_path unless Card.to_test.any?
     @test = Test.new

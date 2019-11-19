@@ -3,13 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe TestsController, type: :controller do
-  describe 'GET index' do
-    it 'redirects to new test' do
-      get :index
-      expect(response).to redirect_to(new_test_path)
-    end
-  end
-
   describe 'GET new' do
     context 'with no flashcards to test' do
       it 'redirects to root' do
