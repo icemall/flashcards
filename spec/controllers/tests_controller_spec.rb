@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe TestsController, type: :controller do
-
   describe 'GET index' do
     it 'redirects to new test' do
       get :index

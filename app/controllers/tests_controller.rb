@@ -1,5 +1,6 @@
-class TestsController < ApplicationController
+# frozen_string_literal: true
 
+class TestsController < ApplicationController
   def index
     redirect_to new_test_path
   end
