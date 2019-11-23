@@ -19,9 +19,7 @@ class Test
   end
 
   def call
-    if normalize_card(translated_text) != normalize_card(card.translated_text)
-      return
-    end
+    return if normalize_card(translated_text) != normalize_card(card.translated_text)
 
     card.update!(review_date: Date.today + Card::REVIEW_IN_DAYS.days)
     self.success = true
