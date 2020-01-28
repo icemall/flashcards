@@ -8,8 +8,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.call
-    if @test.success
+    if @test.call.success
       redirect_to root_path, notice: t(:correct)
     else
       flash.now[:alert] = t(:wrong)
