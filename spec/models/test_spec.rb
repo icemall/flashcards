@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Test do
-
   context 'when no card_id provided' do
     let!(:card) { create(:testable_card) }
     let(:test) { Test.new }
