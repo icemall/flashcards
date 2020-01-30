@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CardSaveValidator < ActiveModel::Validator
+  include CardHelper
+
   def validate(card)
     if texts_are_same?(card)
       card.errors.add(:base, I18n.t('texts_should_be_different'))
@@ -9,13 +11,7 @@ class CardSaveValidator < ActiveModel::Validator
 
   private
 
-  def normalize(string)
-    return unless string
-
-    string.strip.downcase
-  end
-
   def texts_are_same?(card)
-    normalize(card.original_text) == normalize(card.translated_text) && card.original_text.present?
+    normalize_card(card.original_text) == normalize_card(card.translated_text) && card.original_text.present?
   end
 end
