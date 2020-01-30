@@ -15,7 +15,7 @@ class Test
   end
 
   def call
-    return unless passed?
+    return unless successfully_passed?
 
     card.update!(review_date: Date.today + Card::REVIEW_IN_DAYS.days)
     self.success = true
@@ -26,7 +26,7 @@ class Test
     card.original_text
   end
 
-  def passed?
+  def successfully_passed?
     translation_correct?
   end
 
