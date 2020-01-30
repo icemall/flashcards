@@ -12,6 +12,6 @@ class CardSaveValidator < ActiveModel::Validator
   private
 
   def texts_are_same?(card)
-    normalize_card(card.original_text) == normalize_card(card.translated_text) && card.original_text.present?
+    normalize_card_text(card.original_text) == normalize_card_text(card.translated_text) && card.original_text.present?
   end
 end

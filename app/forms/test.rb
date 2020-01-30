@@ -14,15 +14,25 @@ class Test
     @translated_text = args[:translated_text]
   end
 
-  def original_text
-    card.original_text
-  end
-
   def call
-    return if normalize_card(translated_text) != normalize_card(card.translated_text)
+    return unless successfully_passed?
 
     card.update!(review_date: Date.today + Card::REVIEW_IN_DAYS.days)
     self.success = true
     self
+  end
+
+  def original_text
+    card.original_text
+  end
+
+  def successfully_passed?
+    translation_correct?
+  end
+
+  private
+
+  def translation_correct?
+    normalize_card_text(translated_text) == normalize_card_text(card.translated_text)
   end
 end
