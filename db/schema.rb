@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_095343) do
     t.string "original_text", null: false
     t.string "translated_text", null: false
     t.date "review_date", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
