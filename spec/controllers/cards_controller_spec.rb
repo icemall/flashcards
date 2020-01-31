@@ -4,8 +4,9 @@ require 'rails_helper'
 
 RSpec.describe CardsController, type: :controller do
   describe 'GET index' do
+    let!(:card) { create :card }
+
     it 'assigns @cards' do
-      card = Card.create!(original_text: 'cat', translated_text: 'кошка', review_date: Date.today)
       get :index
       expect(assigns(:cards)).to eq([card])
     end
