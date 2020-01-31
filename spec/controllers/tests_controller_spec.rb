@@ -25,8 +25,9 @@ RSpec.describe TestsController, type: :controller do
   end
 
   describe 'POST #create' do
+    let!(:card) { create(:testable_card) }
+
     context 'with successful test' do
-      let!(:card) { create(:testable_card) }
       let(:correct_attrs) { { card_id: card.id, translated_text: card.translated_text } }
       it 'moves the card review date' do
         expect do
@@ -40,7 +41,6 @@ RSpec.describe TestsController, type: :controller do
       end
     end
     context 'with failed test' do
-      let!(:card) { create(:testable_card) }
       let(:incorrect_attrs) { { card_id: card.id, translated_text: 'incorrect text' } }
       it 'doesnt change card' do
         expect do
