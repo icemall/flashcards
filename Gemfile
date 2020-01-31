@@ -33,10 +33,10 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'webdrivers', '~> 4.0'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 4.0'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
