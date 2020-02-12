@@ -35,6 +35,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'launchy'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0'
 end
@@ -44,3 +45,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
+gem 'sorcery'

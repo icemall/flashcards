@@ -3,5 +3,13 @@ nav.navbar.navbar-default
     .navbar-header
       = link_to t('app_name'), root_path, class: 'navbar-brand'
     ul.nav.navbar-nav
-      li= active_link_to t('all_cards'), cards_path, controller_name: 'cards', action_name: 'index'
-      li= active_link_to t('add_card'), new_card_path, controller_name: 'cards', action_name: 'new'
+      - if current_user
+        li= active_link_to t('all_cards'), cards_path, controller_name: 'cards', action_name: 'index'
+        li= active_link_to t('add_card'), new_card_path, controller_name: 'cards', action_name: 'new'
+    ul.nav.navbar-nav.navbar-right
+      - if current_user
+        li= active_link_to t('edit_profile'), edit_user_path(current_user.id)
+        li= active_link_to t('logout'), :logout, method: :post
+      - else
+        li= link_to t('sign_up'), new_user_path
+        li= link_to t('login'), :login

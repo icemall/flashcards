@@ -5,14 +5,17 @@ require 'rails_helper'
 RSpec.describe TestsController, type: :controller do
   describe 'GET #new' do
     context 'with no flashcards to test' do
+      let!(:user) { create :user }
       it 'redirects to root' do
+        login_user(user)
         get :new
         expect(response).to redirect_to(root_path)
       end
     end
     context 'with flashcards to test' do
+      let!(:card) { create(:card, review_date: Date.today) }
       before do
-        create(:card, review_date: Date.today)
+        login_user(card.user)
         get :new
       end
       it 'assigns @test' do
@@ -26,6 +29,9 @@ RSpec.describe TestsController, type: :controller do
 
   describe 'POST #create' do
     let!(:card) { create(:testable_card) }
+    before do
+      login_user(card.user)
+    end
 
     context 'with successful test' do
       let(:correct_attrs) { { card_id: card.id, translated_text: card.translated_text } }

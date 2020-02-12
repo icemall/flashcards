@@ -2,8 +2,8 @@
 
 class TestsController < ApplicationController
   def new
-    redirect_to root_path unless Card.to_test.any?
-    @test = Test.new
+    redirect_to root_path unless current_user.cards.to_test.any?
+    @test = Test.new(user_id: current_user.id)
   end
 
   def create
@@ -20,6 +20,6 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:card_id, :translated_text)
+    params.require(:test).permit(:card_id, :translated_text).merge(user_id: current_user.id)
   end
 end

@@ -3,7 +3,8 @@
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
-    password { Faker::Superhero.power }
+    password { '123qwe' }
+    password_confirmation { password }
   end
   factory :card do
     original_text { Faker::Book.title }

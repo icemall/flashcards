@@ -2,6 +2,9 @@
 
 describe 'taking a test', type: :feature do
   let!(:card) { create :testable_card }
+  before do
+    login(card.user)
+  end
 
   scenario 'Providing correct answer' do
     visit '/tests/new'

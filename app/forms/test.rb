@@ -10,7 +10,8 @@ class Test
   attr_accessor :success
 
   def initialize(args = {})
-    @card = args[:card_id].present? ? Card.find(args[:card_id]) : Card.to_test.sample
+    @user = User.find(args[:user_id])
+    @card = args[:card_id].present? ? @user.cards.find(args[:card_id]) : @user.cards.to_test.sample
     @translated_text = args[:translated_text]
   end
 

@@ -3,6 +3,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'support/factory_bot'
+require 'support/authentication'
 require 'faker'
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -73,4 +74,8 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+  config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
+  config.include AuthenticationForFeatureRequest, type: :feature
 end
