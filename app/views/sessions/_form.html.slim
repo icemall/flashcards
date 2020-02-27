@@ -1,11 +1,7 @@
-= form_with url: sessions_path, method: :post do |f|
+= simple_form_for :session, url: sessions_path, method: :post do |f|
   .field
-    = f.label :email
-    br
-    = f.text_field :email
+    = f.input :email
   .field
-    = f.label :password
-    br
-    = f.password_field :password
+    = f.input :password
   .actions
-    = f.submit t('log_in')
+    = f.submit t('log_in'), class: 'btn btn-default'

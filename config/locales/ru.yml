@@ -46,3 +46,4 @@ ru:
   back: "Назад"
   are_you_sure: "Вы уверены?"
   new_resource: "Новый %{resource}"
+  facebook_auth: "Вход через Facebook"
