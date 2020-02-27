@@ -1,0 +1,5 @@
+h1 = t('edit_profile')
+= render 'form', user: @user
+= link_to fa_icon('eye'), @user
+|
+= link_to t('back'), users_path

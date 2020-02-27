@@ -4,17 +4,17 @@ class CardsController < ApplicationController
   before_action :set_card, only: %i[edit update destroy]
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   def new
-    @card = Card.new
+    @card = current_user.cards.build
   end
 
   def create
     @card = Card::Build.call(card_params)
     if @card.save
-      redirect_to cards_path, notice: t('card_successfuly_created')
+      redirect_to cards_path, notice: t('successfuly_created', resource: Card.model_name.human)
     else
       render :new
     end
@@ -38,10 +38,10 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date).merge(user_id: current_user.id)
   end
 end
