@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OauthsController < ApplicationController
   skip_before_action :require_login, raise: false
 
@@ -18,7 +20,7 @@ class OauthsController < ApplicationController
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to root_path, notice: t('logged_in_using', provider: provider.titleize)
-      rescue
+      rescue StandardError
         redirect_to root_path, alert: t('failed_login_using', provider: provider.titleize)
       end
     end

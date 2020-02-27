@@ -4,9 +4,7 @@ class CardSaveValidator < ActiveModel::Validator
   include CardHelper
 
   def validate(card)
-    if texts_are_same?(card)
-      card.errors.add(:base, I18n.t('texts_should_be_different'))
-    end
+    card.errors.add(:base, I18n.t('texts_should_be_different')) if texts_are_same?(card)
   end
 
   private
