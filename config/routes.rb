@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :sessions
   get 'login' => 'sessions#new', as: :login
   post 'logout' => 'sessions#destroy', as: :logout
+
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 end
