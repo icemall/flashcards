@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: %i[edit update destroy]
 
   def index
-    @cards = current_user.cards.all
+    @cards = current_user.cards
   end
 
   def new
