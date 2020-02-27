@@ -8,6 +8,10 @@ ru:
         original_text: "Оригинал"
         translated_text: "Перевод"
         review_date: "Дата пересмотра"
+      user:
+        name: Имя
+        email: email
+        username: юзернейм
   app_name: "Флэшкарточкер"
   add_card: "Добавить карточку"
   all_cards: "Все карточки"
@@ -38,3 +42,7 @@ ru:
   successfully_created: "%{resource} успешно создан"
   successfully_updated: "%{resource} успешно обновлён"
   successfully_destroyed: "%{resource} успешно удалён"
+  log_in: "Войти"
+  back: "Назад"
+  are_you_sure: "Вы уверены?"
+  new_resource: "Новый %{resource}"
