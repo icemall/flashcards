@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       card: "Карточка"
+      user: "Пользователь"
     attributes:
       card:
         original_text: "Оригинал"
@@ -20,7 +21,6 @@ ru:
       - :year
   texts_should_be_different: "Оригинал и перевод должны быть разными"
   new_card: "Новая карточка"
-  card_successfuly_created: "Карточка создана"
   test_intro: "Укажите перевод слова"
   submit: 'Отправить'
   correct: 'Правильно'
@@ -29,3 +29,12 @@ ru:
   logout: "Выход"
   sign_up: "Регистрация"
   login: "Войти"
+  please_login_first: "Пожалуйста, сперва залогиньтесь"
+  logged_in_using: "Успешно вошли через %{provider}"
+  failed_login_using: "Неуспешная попытка войти через %{provider}"
+  login_successfull: "Login successful"
+  logged_out: "Logged out!"
+  login_failed: "Login failed"
+  successfully_created: "%{resource} успешно создан"
+  successfully_updated: "%{resource} успешно обновлён"
+  successfully_destroyed: "%{resource} успешно удалён"

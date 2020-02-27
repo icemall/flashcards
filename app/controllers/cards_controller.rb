@@ -14,7 +14,7 @@ class CardsController < ApplicationController
   def create
     @card = Card::Build.call(card_params)
     if @card.save
-      redirect_to cards_path, notice: t('card_successfuly_created')
+      redirect_to cards_path, notice: t('successfuly_created', resource: Card.model_name.human)
     else
       render :new
     end

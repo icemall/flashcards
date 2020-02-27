@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to root_path, notice: 'User was successfully created.'
+      redirect_to root_path, notice: t('successfully_created', resource: User.model_name.human)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: t('successfully_updated', resource: User.model_name.human) }
       else
         format.html { render :edit }
       end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: t('successfully_destroyed', resource: User.model_name.human) }
     end
   end
 
