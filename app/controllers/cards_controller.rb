@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = current_user.cards.build
+    @card = current_user.cards.build.decorate
   end
 
   def create
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    @card = current_user.cards.find(params[:id])
+    @card = current_user.cards.find(params[:id]).decorate
   end
 
   def card_params
