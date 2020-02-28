@@ -12,6 +12,5 @@ html
       = render 'layouts/navbar'
       .text-info
         = notice
-        = image_tag Card.find(params[:card_id]) if params[:card_id].present?
       .text-danger = alert
       = yield
