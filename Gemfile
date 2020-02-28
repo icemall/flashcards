@@ -43,6 +43,8 @@ end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'carrierwave', '~> 2.0'
+gem 'fog-aws'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 gem 'simple_form'

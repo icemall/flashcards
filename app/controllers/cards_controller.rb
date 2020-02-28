@@ -42,6 +42,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date).merge(user_id: current_user.id)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :picture, :remote_picture_url).merge(user_id: current_user.id)
   end
 end
