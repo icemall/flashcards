@@ -12,8 +12,10 @@ ru:
         remote_picture_url: 'Картинка по ссылке'
       user:
         name: Имя
-        email: email
-        username: юзернейм
+        email: Email
+        username: Юзернейм
+        password: Пароль
+        password_confirmation: Пароль повторно
   app_name: "Флэшкарточкер"
   add_card: "Добавить карточку"
   all_cards: "Все карточки"
