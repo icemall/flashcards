@@ -1,7 +1,7 @@
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :fog
+  storage ENV['PICTURE_STORAGE'].to_sym
   process resize_to_fit: [360, 360]
 
   def store_dir
