@@ -3,6 +3,8 @@
 class Card < ApplicationRecord
   REVIEW_IN_DAYS = 3
 
+  mount_uploader :picture, PictureUploader
+
   belongs_to :user
 
   validates_with CardSaveValidator

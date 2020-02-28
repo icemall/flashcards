@@ -10,6 +10,7 @@ html
   body
     .container
       = render 'layouts/navbar'
-      .text-info = notice
+      .text-info
+        = notice
       .text-danger = alert
       = yield

@@ -3,6 +3,7 @@
 class Test
   include ActiveModel::Model
   include CardHelper
+  include Draper::Decoratable
 
   attr_accessor :card
   attr_accessor :card_id

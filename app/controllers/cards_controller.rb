@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = current_user.cards.build
+    @card = current_user.cards.build.decorate
   end
 
   def create
@@ -38,10 +38,10 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    @card = current_user.cards.find(params[:id])
+    @card = current_user.cards.find(params[:id]).decorate
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date).merge(user_id: current_user.id)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :picture, :remote_picture_url).merge(user_id: current_user.id)
   end
 end

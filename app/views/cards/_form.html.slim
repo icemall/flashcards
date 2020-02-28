@@ -1,13 +1,19 @@
-= simple_form_for @card do |f|
+= simple_form_for @card, html: { multipart: true } do |f|
 
   - if @card.errors.any?
     ul.text-danger
       - @card.errors.full_messages.each do |error|
         li = error
 
+  .row
+    .col-md-4 = f.input :original_text
+    .col-md-4 = f.input :translated_text
+    .col-md-4 = f.input :review_date
+  .row
+    .col-md-6
+      = f.input :picture
+    .col-md-6 = f.input :remote_picture_url
+  = @card.current_picture
 
-  = f.input :original_text
-  = f.input :translated_text
-  = f.input :review_date
-
-  = f.button :submit
+  .row.pull-right
+    = f.button :submit
