@@ -11,6 +11,5 @@
     .col-md-2
       br
       = f.submit t(:submit), class: 'btn btn-default'
-  - if f.object.card.picture.present?
-    .row: .col-md-12.text-center
-      = image_tag f.object.card.picture.url
+
+  = @test.picture
