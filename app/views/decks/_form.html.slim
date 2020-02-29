@@ -1,0 +1,13 @@
+= simple_form_for @deck do |f|
+
+  - if @deck.errors.any?
+    ul.text-danger
+      - @deck.errors.full_messages.each do |error|
+        li = error
+
+  .row
+    .col-md-6 = f.input :name
+    .col-md-6 = f.input :current
+
+  .row.pull-right
+    = f.button :submit

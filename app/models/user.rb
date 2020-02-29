@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   has_many :cards
+  has_many :decks
 
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
