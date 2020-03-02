@@ -3,7 +3,7 @@ class Deck < ApplicationRecord
   has_many :cards
 
   validates :current, uniqueness: true, if: :current
-  validates :name, presence: true
+  validates :user_id, :name, presence: true
 
   def self.to_test
     where(current: true).any? ? where(current: true) : all
