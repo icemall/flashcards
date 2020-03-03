@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_062849) do
 
   create_table "decks", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "name"
+    t.string "name", null: false
     t.boolean "current", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
