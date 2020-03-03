@@ -6,6 +6,8 @@
         li = error
 
   .row
+    .col-md-4 = f.input :deck_id, collection: current_user.decks
+  .row
     .col-md-4 = f.input :original_text
     .col-md-4 = f.input :translated_text
     .col-md-4 = f.input :review_date

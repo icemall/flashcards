@@ -6,13 +6,13 @@ RSpec.describe CardsController, type: :controller do
   describe 'GET index' do
     let!(:user1) { create :user }
     let!(:user2) { create :user }
-    let!(:card1) { create :card, user: user1 }
-    let!(:card2) { create :card, user: user2 }
+    let!(:card1) { create :card, deck: create(:deck, user: user1) }
+    let!(:card2) { create :card, deck: create(:deck, user: user2) }
     before do
-      login_user(card1.user)
+      login_user(user1)
     end
 
-    it 'assigns current_user\'s cards to @cards' do
+    it "assigns current_user's cards to @cards" do
       get :index
       expect(assigns(:cards)).to include(card1)
     end

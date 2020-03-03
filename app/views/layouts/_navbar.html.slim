@@ -4,7 +4,9 @@ nav.navbar.navbar-default
       = link_to t('app_name'), root_path, class: 'navbar-brand'
     ul.nav.navbar-nav
       - if current_user
-        li= active_link_to t('all_cards'), cards_path, controller_name: 'cards', action_name: 'index'
+        li= active_link_to t('decks'), decks_path, controller_name: 'decks', action_name: 'index'
+        li= active_link_to t('add_deck'), new_deck_path, controller_name: 'decks', action_name: 'new'
+        li= active_link_to t('cards'), cards_path, controller_name: 'cards', action_name: 'index'
         li= active_link_to t('add_card'), new_card_path, controller_name: 'cards', action_name: 'new'
     ul.nav.navbar-nav.navbar-right
       - if current_user

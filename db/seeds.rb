@@ -2,10 +2,14 @@
 
 require "#{Rails.root}/lib/api/card_parser"
 
-user = User.create!(email: 'admin@example.com', password: '123qweASD')
+ActiveRecord::Base.transaction do
+  user = User.create!(email: 'admin@example.com', password: '123qwe', password_confirmation: '123qwe')
 
-Api::CardParser.call.each do |card|
-  card = Card::Build.call(card)
-  card.user = user
-  card.save! if card.valid?
+  deck = user.decks.create!(name: 'Default', current: true)
+
+  Api::CardParser.call.each do |card|
+    card = Card::Build.call(card)
+    card.deck = deck
+    card.save! if card.valid?
+  end
 end

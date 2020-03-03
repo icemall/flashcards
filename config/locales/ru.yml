@@ -3,6 +3,7 @@ ru:
     models:
       card: "Карточка"
       user: "Пользователь"
+      deck: Колода
     attributes:
       card:
         original_text: "Оригинал"
@@ -16,6 +17,9 @@ ru:
         username: Юзернейм
         password: Пароль
         password_confirmation: Пароль повторно
+      deck:
+        name: Название
+        current: Текущая
   app_name: "Флэшкарточкер"
   add_card: "Добавить карточку"
   all_cards: "Все карточки"
@@ -29,6 +33,7 @@ ru:
       - :year
   texts_should_be_different: "Оригинал и перевод должны быть разными"
   new_card: "Новая карточка"
+  new_deck: "Новая колода"
   test_intro: "Укажите перевод слова"
   submit: 'Отправить'
   correct: 'Правильно'
@@ -51,3 +56,6 @@ ru:
   are_you_sure: "Вы уверены?"
   new_resource: "Новый %{resource}"
   facebook_auth: "Вход через Facebook"
+  decks: "Колоды"
+  add_deck: "Новая колода"
+  cards: "Карты"

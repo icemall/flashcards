@@ -3,9 +3,10 @@
 Rails.application.routes.draw do
   root to: 'home#index'
   resources :cards
+  resources :decks
+  resources :sessions
   resources :tests, only: %i[new create]
   resources :users
-  resources :sessions
   get 'login' => 'sessions#new', as: :login
   post 'logout' => 'sessions#destroy', as: :logout
 

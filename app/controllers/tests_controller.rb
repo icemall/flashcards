@@ -2,7 +2,7 @@
 
 class TestsController < ApplicationController
   def new
-    redirect_to root_path unless current_user.cards.to_test.any?
+    redirect_to root_path unless FindTestableCard.new(current_user.cards).call.present?
     @test = Test.new(user_id: current_user.id).decorate
   end
 

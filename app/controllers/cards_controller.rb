@@ -26,7 +26,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to cards_path
     else
-      render :edit
+      render :edit.c
     end
   end
 
@@ -42,6 +42,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :picture, :remote_picture_url).merge(user_id: current_user.id)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :picture, :remote_picture_url, :deck_id)
   end
 end
