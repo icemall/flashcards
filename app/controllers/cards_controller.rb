@@ -26,7 +26,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to cards_path
     else
-      render :edit.c
+      render :edit
     end
   end
 
