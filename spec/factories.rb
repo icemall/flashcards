@@ -9,6 +9,10 @@ FactoryBot.define do
   factory :deck do
     name { 'Some deck name' }
     user
+    factory :invalid_deck do
+      name { nil }
+      user { nil }
+    end
   end
   factory :card do
     original_text { Faker::Book.title }
