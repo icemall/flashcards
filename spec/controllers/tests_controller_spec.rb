@@ -13,7 +13,7 @@ RSpec.describe TestsController, type: :controller do
       end
     end
     context 'with flashcards to test' do
-      let!(:card) { create(:card, review_date: Date.today) }
+      let!(:card) { create(:card, review_time: Time.now) }
       before do
         login_user(card.user)
         get :new
@@ -35,11 +35,11 @@ RSpec.describe TestsController, type: :controller do
 
     context 'with successful test' do
       let(:correct_attrs) { { card_id: card.id, translated_text: card.translated_text } }
-      it 'moves the card review date' do
+      it 'moves the card review time' do
         expect do
           post :create, params: { test: correct_attrs }
           card.reload
-        end.to change(card, :review_date)
+        end.to change(card, :review_time)
       end
       it 'redirects to root' do
         post :create, params: { test: correct_attrs }
@@ -49,10 +49,8 @@ RSpec.describe TestsController, type: :controller do
     context 'with failed test' do
       let(:incorrect_attrs) { { card_id: card.id, translated_text: 'incorrect text' } }
       it 'doesnt change card' do
-        expect do
-          post :create, params: { test: incorrect_attrs }
-          card.reload
-        end.to_not change(card, :review_date)
+        post :create, params: { test: incorrect_attrs }
+        expect(card.review_time.to_i).to eq(card.reload.review_time.to_i)
       end
       it 'renders new' do
         post :create, params: { test: incorrect_attrs }

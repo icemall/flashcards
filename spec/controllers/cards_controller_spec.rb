@@ -17,7 +17,7 @@ RSpec.describe CardsController, type: :controller do
       expect(assigns(:cards)).to include(card1)
     end
 
-    it 'doesn\'t assign other user\'s cards to @cards' do
+    it "doesn't assign other user's cards to @cards" do
       get :index
       expect(assigns(:cards)).not_to include(card2)
     end

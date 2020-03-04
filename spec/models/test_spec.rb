@@ -15,8 +15,8 @@ RSpec.describe Test do
   context 'when card_id provided and results are correct' do
     let(:test) { Test.new(card_id: card.id, translated_text: card.translated_text, user_id: card.user.id) }
 
-    it 'updates card review_date and returns success' do
-      expect { test.call }.to change(test.card, :review_date)
+    it 'updates card review_time and returns success' do
+      expect { test.call }.to change(test.card, :review_time)
         .and change(test, :success).to(true)
     end
   end

@@ -10,6 +10,7 @@ class Card < ApplicationRecord
 
   validates_with CardSaveValidator
   validates :original_text, :translated_text,
-            :review_date, :deck_id,
+            :review_time, :deck_id,
             presence: true
+  validates :leitner_level, numericality: { minimum: 0 }
 end

@@ -2,8 +2,19 @@
 
 class Card
   class Build
-    def self.call(options)
-      Card.new(options).tap { |c| c.review_date = Date.today + 3.days }
+    class << self
+      def call(options)
+        Card.new(options.merge(defaults))
+      end
+
+      private
+
+      def defaults
+        {
+          leitner_level: Leitner::DEFAULT_LEVEL,
+          review_time: Time.now + Leitner::review_period_for_level(Leitner::DEFAULT_LEVEL)
+        }
+      end
     end
   end
 end

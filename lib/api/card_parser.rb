@@ -14,7 +14,6 @@ module Api
         card = {}
         card[:original_text] = row.css('td')[1].text
         card[:translated_text] = row.css('td')[2].text
-        card[:review_date] = Date.today
         cards << card
       end
       cards
