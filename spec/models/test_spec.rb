@@ -25,7 +25,8 @@ RSpec.describe Test do
         test.card.attempts = Leitner::MAX_ACCEPTABLE_ATTEMPTS - 1
         Timecop.freeze
         expect { test.call }.to change(test.card, :leitner_level).by(1)
-                                    .and change(test.card, :review_time).to(Leitner.review_period_for_level(test.card.leitner_level + 1).from_now)
+                            .and change(test.card, :review_time)
+                              .to(Leitner.review_period_for_level(test.card.leitner_level + 1).from_now)
       end
     end
 
@@ -34,7 +35,8 @@ RSpec.describe Test do
         test.card.attempts = Leitner::MAX_ACCEPTABLE_ATTEMPTS + 1
         Timecop.freeze
         expect { test.call }.to change(test.card, :leitner_level).to(Leitner::ROLLBACK_LEVEL)
-                                    .and change(test.card, :review_time).to(Leitner.review_period_for_level(Leitner::ROLLBACK_LEVEL).from_now)
+                            .and change(test.card, :review_time)
+                              .to(Leitner.review_period_for_level(Leitner::ROLLBACK_LEVEL).from_now)
       end
     end
   end
