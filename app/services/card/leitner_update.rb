@@ -13,25 +13,25 @@ class Card
       set_leitner_level
       set_review_time
       reset_attempts
-      card.save!
+      @card.save!
     end
 
     private
 
     def reset_attempts
-      card.attempts = 0
+      @card.attempts = 0
     end
 
     def set_leitner_level
-      if card.attempts <= Leitner::MAX_ACCEPTABLE_ATTEMPTS
-        card.leitner_level += 1
+      if @card.attempts <= Leitner::MAX_ACCEPTABLE_ATTEMPTS
+        @card.leitner_level += 1
       else
-        card.leitner_level = Leitner::ROLLBACK_LEVEL
+        @card.leitner_level = Leitner::ROLLBACK_LEVEL
       end
     end
 
     def set_review_time
-      card.review_time = Time.now + Leitner.review_period_for_level(card.leitner_level)
+      @card.review_time = Time.now + Leitner.review_period_for_level(@card.leitner_level)
     end
   end
 end

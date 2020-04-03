@@ -19,6 +19,7 @@ FactoryBot.define do
     translated_text { Faker::Game.title }
     review_time { Time.now }
     deck
+    leitner_level { 2 }
     factory :testable_card do
       review_time { Time.now }
     end
