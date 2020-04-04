@@ -7,6 +7,8 @@ class Leitner
   ROLLBACK_LEVEL = 1
 
   def self.review_period_for_level(level)
+    return unless level.is_a?(Integer) && !level.negative?
+
     case level
     when 0
       0.seconds
