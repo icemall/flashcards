@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Card::LeitnerUpdate do
   let(:card) { create :card }
 
