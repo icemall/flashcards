@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_170117) do
     t.datetime "review_time", null: false
     t.string "picture"
     t.bigint "deck_id"
-    t.integer "leitner_level", default: 0
     t.integer "attempts", default: 0
+    t.integer "leitner_level", default: 0
     t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 
