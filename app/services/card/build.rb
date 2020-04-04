@@ -4,7 +4,7 @@ class Card
   class Build
     class << self
       def call(options)
-        Card.new(options.merge(defaults))
+        Card.new(defaults.merge(options))
       end
 
       private
