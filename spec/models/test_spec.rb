@@ -12,12 +12,32 @@ RSpec.describe Test do
     end
   end
 
-  context 'when card_id provided and results are correct' do
+  context 'when card_id is provided and results are correct' do
     let(:test) { Test.new(card_id: card.id, translated_text: card.translated_text, user_id: card.user.id) }
 
-    it 'updates card review_date and returns success' do
-      expect { test.call }.to change(test.card, :review_date)
+    it 'updates card review_time and returns success' do
+      expect { test.call }.to change(test.card, :review_time)
         .and change(test, :success).to(true)
+    end
+
+    context 'when passing attempts did not exceed max allowed number' do
+      it 'upgrades Leitner level and sets appropriate review time' do
+        test.card.attempts = Leitner::MAX_ACCEPTABLE_ATTEMPTS - 1
+        Timecop.freeze
+        expect { test.call }.to change(test.card, :leitner_level).by(1)
+                            .and change(test.card, :review_time)
+                              .to(Leitner.review_period_for_level(test.card.leitner_level + 1).from_now)
+      end
+    end
+
+    context 'when passing attempts exceeded max allowed number' do
+      it 'resets Leitner level and sets appropriate review time' do
+        test.card.attempts = Leitner::MAX_ACCEPTABLE_ATTEMPTS + 1
+        Timecop.freeze
+        expect { test.call }.to change(test.card, :leitner_level).to(Leitner::ROLLBACK_LEVEL)
+                            .and change(test.card, :review_time)
+                              .to(Leitner.review_period_for_level(Leitner::ROLLBACK_LEVEL).from_now)
+      end
     end
   end
 end

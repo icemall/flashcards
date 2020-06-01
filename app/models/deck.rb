@@ -1,6 +1,6 @@
 class Deck < ApplicationRecord
   belongs_to :user
-  has_many :cards
+  has_many :cards, dependent: :destroy
 
   validates :current, uniqueness: true, if: :current
   validates :user_id, :name, presence: true

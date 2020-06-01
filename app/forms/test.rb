@@ -17,10 +17,8 @@ class Test
   end
 
   def call
-    return unless successfully_passed?
-
-    card.update!(review_date: Date.today + Card::REVIEW_IN_DAYS.days)
-    self.success = true
+    add_attempt
+    process_success if successfully_passed?
     self
   end
 
@@ -28,11 +26,21 @@ class Test
     card.original_text
   end
 
+  private
+
+  def add_attempt
+    card.attempts += 1
+    card.save!
+  end
+
+  def process_success
+    Card::LeitnerUpdate.new(card).call
+    self.success = true
+  end
+
   def successfully_passed?
     translation_correct?
   end
-
-  private
 
   def translation_correct?
     normalize_card_text(translated_text) == normalize_card_text(card.translated_text)

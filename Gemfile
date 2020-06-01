@@ -38,6 +38,7 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'timecop'
   gem 'webdrivers', '~> 4.0'
 end
 

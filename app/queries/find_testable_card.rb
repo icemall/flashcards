@@ -13,7 +13,7 @@ class FindTestableCard
   private
 
   def filter_by_card(scope)
-    scope.where('review_date <= ?', Date.today)
+    scope.where('review_time <= ?', Time.now)
   end
 
   def filter_by_deck(scope)

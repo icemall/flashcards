@@ -17,13 +17,14 @@ FactoryBot.define do
   factory :card do
     original_text { Faker::Book.title }
     translated_text { Faker::Game.title }
-    review_date { Date.today }
+    review_time { Time.now }
     deck
+    leitner_level { 2 }
     factory :testable_card do
-      review_date { Date.today }
+      review_time { Time.now }
     end
     factory :nontestable_card do
-      review_date { Date.tomorrow }
+      review_time { Date.tomorrow }
     end
   end
 end
