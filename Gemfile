@@ -45,6 +45,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave', '~> 2.0'
+gem 'damerau-levenshtein'
 gem 'draper'
 gem 'fog-aws'
 gem 'font-awesome-rails'

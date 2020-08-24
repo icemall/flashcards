@@ -10,7 +10,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params).decorate
     @test.call
     if @test.success
-      redirect_to root_path, notice: t(:correct)
+      redirect_to root_path, notice: @test.feedback
     else
       flash.now[:alert] = t(:wrong)
       render :new

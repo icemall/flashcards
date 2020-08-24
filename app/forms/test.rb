@@ -1,19 +1,23 @@
 # frozen_string_literal: true
 
+require 'damerau-levenshtein'
 class Test
   include ActiveModel::Model
   include CardHelper
   include Draper::Decoratable
 
+  ALLOWED_NUMBER_OF_TYPOS = 1
+
   attr_accessor :card
   attr_accessor :card_id
+  attr_accessor :feedback
   attr_accessor :translated_text
   attr_accessor :success
 
   def initialize(args = {})
     @user = User.find(args[:user_id])
     @card = args[:card_id].present? ? @user.cards.find(args[:card_id]) : FindTestableCard.new(@user.cards).call
-    @translated_text = args[:translated_text]
+    @translated_text = normalize_card_text(args[:translated_text])
   end
 
   def call
@@ -33,16 +37,25 @@ class Test
     card.save!
   end
 
-  def process_success
-    Card::LeitnerUpdate.new(card).call
-    self.success = true
+  def success_feedback
+    translated_with_typos? ? I18n.t('test.translation_with_typos_feedback', typo: translated_text) : I18n.t('test.perfect_translation_feedback')
   end
 
   def successfully_passed?
-    translation_correct?
+    perfectly_translated? || translated_with_typos?
   end
 
-  def translation_correct?
+  def perfectly_translated?
     normalize_card_text(translated_text) == normalize_card_text(card.translated_text)
+  end
+
+  def process_success
+    Card::LeitnerUpdate.new(card).call
+    self.success = true
+    self.feedback = success_feedback
+  end
+
+  def translated_with_typos?
+    DamerauLevenshtein.distance(normalize_card_text(translated_text), normalize_card_text(card.translated_text)) <= ALLOWED_NUMBER_OF_TYPOS
   end
 end
