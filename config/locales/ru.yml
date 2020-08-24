@@ -59,3 +59,6 @@ ru:
   decks: "Колоды"
   add_deck: "Новая колода"
   cards: "Карты"
+  test:
+    perfect_translation_feedback: Правильно
+    translation_with_typos_feedback: "Правильно, но есть опечатка: %{typo}"

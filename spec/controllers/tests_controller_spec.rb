@@ -35,23 +35,28 @@ RSpec.describe TestsController, type: :controller do
 
     context 'with successful test' do
       let(:correct_attrs) { { card_id: card.id, translated_text: card.translated_text } }
+
       it 'moves the card review time' do
         expect do
           post :create, params: { test: correct_attrs }
           card.reload
         end.to change(card, :review_time)
       end
+
       it 'redirects to root' do
         post :create, params: { test: correct_attrs }
         expect(response).to redirect_to(root_path)
       end
     end
+
     context 'with failed test' do
       let(:incorrect_attrs) { { card_id: card.id, translated_text: 'incorrect text' } }
+
       it 'doesnt change card' do
         post :create, params: { test: incorrect_attrs }
         expect(card.review_time.to_i).to eq(card.reload.review_time.to_i)
       end
+
       it 'renders new' do
         post :create, params: { test: incorrect_attrs }
         expect(response).to render_template(:new)

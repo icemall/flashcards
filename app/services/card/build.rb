@@ -2,6 +2,8 @@
 
 class Card
   class Build
+    include CardHelper
+
     class << self
       def call(options)
         Card.new(defaults.merge(options))
