@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
+require 'damerau-levenshtein'
 class Test
   include ActiveModel::Model
   include CardHelper
   include Draper::Decoratable
-  require 'damerau-levenshtein'
 
   ALLOWED_NUMBER_OF_TYPOS = 1
 
@@ -37,10 +37,8 @@ class Test
     card.save!
   end
 
-  def process_success
-    Card::LeitnerUpdate.new(card).call
-    self.success = true
-    self.feedback = translated_with_typos? ? I18n.t('test.translation_with_typos_feedback', typo: translated_text) : I18n.t('test.perfect_translation_feedback')
+  def success_feedback
+    translated_with_typos? ? I18n.t('test.translation_with_typos_feedback', typo: translated_text) : I18n.t('test.perfect_translation_feedback')
   end
 
   def successfully_passed?
@@ -49,6 +47,12 @@ class Test
 
   def perfectly_translated?
     normalize_card_text(translated_text) == normalize_card_text(card.translated_text)
+  end
+
+  def process_success
+    Card::LeitnerUpdate.new(card).call
+    self.success = true
+    self.feedback = success_feedback
   end
 
   def translated_with_typos?
