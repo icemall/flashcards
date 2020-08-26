@@ -23,7 +23,7 @@ FactoryBot.define do
     factory :testable_card do
       review_time { Time.now }
     end
-    factory :nontestable_card do
+    factory :non_testable_card do
       review_time { Date.tomorrow }
     end
   end

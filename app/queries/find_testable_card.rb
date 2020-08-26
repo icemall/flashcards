@@ -13,7 +13,7 @@ class FindTestableCard
   private
 
   def filter_by_card(scope)
-    scope.where('review_time <= ?', Time.now)
+    scope.testable
   end
 
   def filter_by_deck(scope)
