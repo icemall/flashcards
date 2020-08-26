@@ -62,3 +62,7 @@ ru:
   test:
     perfect_translation_feedback: Правильно
     translation_with_typos_feedback: "Правильно, но есть опечатка: %{typo}"
+  notification_mailer:
+    notify_of_pending_cards:
+      subject: 'Есть карточки для повтора'
+      body_html: "Появились карточки для повторения. Перейдите по <a href=\"%{url}\" target='_blank'>ссылке</a>."

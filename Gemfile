@@ -24,6 +24,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'nokogiri', '~> 1.6', '>= 1.6.8'
   gem 'rubocop'
@@ -45,6 +46,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave', '~> 2.0'
+gem 'config'
 gem 'damerau-levenshtein'
 gem 'draper'
 gem 'fog-aws'
@@ -53,3 +55,4 @@ gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'
 gem 'sorcery'
+gem 'whenever', require: false
