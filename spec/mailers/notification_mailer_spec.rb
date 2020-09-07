@@ -14,7 +14,7 @@ RSpec.describe NotificationMailer, type: :mailer do
     end
 
     it 'renders the body' do
-      expect(mail.body.encoded).to match('Появились карточки для повторения')
+      expect(mail.body.encoded).to match('You have pending cards to review')
     end
   end
 end

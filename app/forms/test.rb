@@ -38,7 +38,7 @@ class Test
   end
 
   def success_feedback
-    translated_with_typos? ? I18n.t('test.translation_with_typos_feedback', typo: translated_text) : I18n.t('test.perfect_translation_feedback')
+    perfectly_translated? ? I18n.t('test.perfect_translation_feedback') : I18n.t('test.translation_with_typos_feedback', typo: translated_text)
   end
 
   def successfully_passed?

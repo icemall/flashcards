@@ -1,0 +1,70 @@
+en:
+  activerecord:
+    attributes:
+      card:
+        original_text: Original text
+        picture: Picture
+        remote_picture_url: Picture link
+        review_time: Review time
+        translated_text: Translation
+      deck:
+        current: Current
+        name: Name
+      user:
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
+        username: Usernmae
+        locale: Interface language
+    models:
+      card: Card
+      deck: Deck
+      user: User
+  add_card: Add card
+  add_deck: New deck
+  all_cards: All card
+  app_name: Flashcardr
+  are_you_sure: Are you sure?
+  back: Back
+  cards: Cards
+  correct: Correct
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  decks: Decks
+  destroy: Delete
+  edit: Edit
+  edit_profile: Edit profile
+  facebook_auth: "Login using Facebook"
+  failed_login_using: "Failed logging in with %{provider}"
+  logged_in_using: "Logged in using %{provider}"
+  logged_out: Logged out
+  login: Log in
+  login_failed: "Login failed"
+  login_successfull: Successful login
+  logout: Log out
+  new_card: New card
+  new_deck: New deck
+  new_resource: "New %{resource}"
+  notification_mailer:
+    notify_of_pending_cards:
+      body_html: "You have pending cards to review. Use <a href=\"%{url}\" target='_blank'>the link</a>."
+      subject: There are cards to review
+  please_login_first: Please log in first
+  sign_up: Sign up
+  submit: Submit
+  successfully_created: "%{resource} is successfully created"
+  successfully_destroyed: "%{resource} is successfully destroyed"
+  successfully_updated: "%{resource} is successfully updated"
+  tagline: The world's first handy flashcard manager. Believe me
+  test:
+    perfect_translation_feedback: Correct
+    translation_with_typos_feedback: "You're right, but there's a typo in %{typo}"
+  test_intro: Define translation
+  texts_should_be_different: Original word and tranlsation should differ
+  wrong: Wrooooooooong!
+  language: Language
+  language_name: English

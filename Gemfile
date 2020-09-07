@@ -35,6 +35,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'capybara-screenshot'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
@@ -51,6 +52,8 @@ gem 'damerau-levenshtein'
 gem 'draper'
 gem 'fog-aws'
 gem 'font-awesome-rails'
+gem 'http_accept_language'
+gem 'i18n_yaml_sorter'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'slim'

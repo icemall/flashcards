@@ -1,68 +1,71 @@
 ru:
   activerecord:
-    models:
-      card: "Карточка"
-      user: "Пользователь"
-      deck: Колода
     attributes:
       card:
         original_text: "Оригинал"
-        translated_text: "Перевод"
-        review_time: "Дата пересмотра"
         picture: 'Картинка'
         remote_picture_url: 'Картинка по ссылке'
+        review_time: "Дата пересмотра"
+        translated_text: "Перевод"
+      deck:
+        current: Текущая
+        name: Название
       user:
-        name: Имя
         email: Email
-        username: Юзернейм
+        name: Имя
         password: Пароль
         password_confirmation: Пароль повторно
-      deck:
-        name: Название
-        current: Текущая
-  app_name: "Флэшкарточкер"
+        username: Юзернейм
+        locale: Язык интерфейса сайта
+    models:
+      card: "Карточка"
+      deck: Колода
+      user: "Пользователь"
   add_card: "Добавить карточку"
+  add_deck: "Новая колода"
   all_cards: "Все карточки"
-  edit: "Редактировать"
-  edit_profile: 'Редактировать профиль'
-  destroy: "Удалить"
+  app_name: "Флэшкарточкер"
+  are_you_sure: "Вы уверены?"
+  back: "Назад"
+  cards: "Карты"
+  correct: 'Правильно'
   date:
     order:
       - :day
       - :month
       - :year
-  texts_should_be_different: "Оригинал и перевод должны быть разными"
+  decks: "Колоды"
+  destroy: "Удалить"
+  edit: "Редактировать"
+  edit_profile: 'Редактировать профиль'
+  facebook_auth: "Вход через Facebook"
+  failed_login_using: "Неуспешная попытка войти через %{provider}"
+  log_in: "Войти"
+  logged_in_using: "Успешно вошли через %{provider}"
+  logged_out: "Logged out!"
+  login: "Войти"
+  login_failed: "Login failed"
+  login_successfull: "Login successful"
+  logout: "Выход"
   new_card: "Новая карточка"
   new_deck: "Новая колода"
-  test_intro: "Укажите перевод слова"
-  submit: 'Отправить'
-  correct: 'Правильно'
-  wrong: 'Неправильно'
-  tagline: Первый в мире удобный менеджер флеш-карточек. Именно так.
-  logout: "Выход"
-  sign_up: "Регистрация"
-  login: "Войти"
-  please_login_first: "Пожалуйста, сперва залогиньтесь"
-  logged_in_using: "Успешно вошли через %{provider}"
-  failed_login_using: "Неуспешная попытка войти через %{provider}"
-  login_successfull: "Login successful"
-  logged_out: "Logged out!"
-  login_failed: "Login failed"
-  successfully_created: "%{resource} успешно создан"
-  successfully_updated: "%{resource} успешно обновлён"
-  successfully_destroyed: "%{resource} успешно удалён"
-  log_in: "Войти"
-  back: "Назад"
-  are_you_sure: "Вы уверены?"
   new_resource: "Новый %{resource}"
-  facebook_auth: "Вход через Facebook"
-  decks: "Колоды"
-  add_deck: "Новая колода"
-  cards: "Карты"
+  notification_mailer:
+    notify_of_pending_cards:
+      body_html: "Появились карточки для повторения. Перейдите по <a href=\"%{url}\" target='_blank'>ссылке</a>."
+      subject: 'Есть карточки для повтора'
+  please_login_first: "Пожалуйста, сперва залогиньтесь"
+  sign_up: "Регистрация"
+  submit: 'Отправить'
+  successfully_created: "%{resource} успешно создан"
+  successfully_destroyed: "%{resource} успешно удалён"
+  successfully_updated: "%{resource} успешно обновлён"
+  tagline: Первый в мире удобный менеджер флеш-карточек. Именно так.
   test:
     perfect_translation_feedback: Правильно
     translation_with_typos_feedback: "Правильно, но есть опечатка: %{typo}"
-  notification_mailer:
-    notify_of_pending_cards:
-      subject: 'Есть карточки для повтора'
-      body_html: "Появились карточки для повторения. Перейдите по <a href=\"%{url}\" target='_blank'>ссылке</a>."
+  test_intro: "Укажите перевод слова"
+  texts_should_be_different: "Оригинал и перевод должны быть разными"
+  wrong: 'Неправильно'
+  language: Язык
+  language_name: Русский
