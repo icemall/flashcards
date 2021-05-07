@@ -1,6 +1,11 @@
 Metrics/LineLength:
-  # Change the default 80 chars limit value
-  Max: 120
+  Max: 250
 AllCops:
   Excludes:
     - db/schema.rb
+Metrics/MethodLength:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
