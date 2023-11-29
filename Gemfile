@@ -46,7 +46,7 @@ end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'carrierwave', '~> 2.1'
+gem 'carrierwave', '~> 2.2'
 gem 'config'
 gem 'damerau-levenshtein'
 gem 'draper'
